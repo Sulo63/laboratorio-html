@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redes y Comunicaciones IP - Inicio</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor">
+      <p class="etiqueta">Actividad práctica · Capa 7 del modelo OSI</p>
+      <h1>INTERNET: Redes y Comunicaciones IP</h1>
+      <p class="intro">
+        Sitio web académico con el resumen de lo aprendido en el curso: fundamentos de
+        Cisco Networking Academy, laboratorios en GNS3 y servicios de la capa de aplicación.
+      </p>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <a class="activo" href="index.html">Inicio</a>
+    <a href="html-puro.html">HTML puro</a>
+    <a href="html-css.html">HTML + CSS</a>
+    <a href="integrantes/camilo.html">Camilo Novoa</a>
+  </nav>
+
+  <main class="contenedor">
+    <section class="tarjeta">
+      <h2>¿Qué encontrará en este sitio?</h2>
+      <div class="columnas">
+        <article>
+          <h3>HTML puro</h3>
+          <p>Los contenidos del curso presentados solo con etiquetas HTML, sin hoja de estilos.</p>
+          <p><a href="html-puro.html">Ver versión HTML puro →</a></p>
+        </article>
+        <article>
+          <h3>HTML + CSS</h3>
+          <p>Los mismos contenidos con una hoja de estilos propia para mejorar la lectura.</p>
+          <p><a href="html-css.html">Ver versión HTML + CSS →</a></p>
+        </article>
+        <article>
+          <h3>Integrante</h3>
+          <p>Breve biografía personal de Camilo Novoa Montenegro.</p>
+          <p><a href="integrantes/camilo.html">Ver biografía →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Temas del curso</h2>
+      <div class="chips">
+        <span>Modelo OSI</span>
+        <span>TCP/IP</span>
+        <span>Subneteo y VLSM</span>
+        <span>VLAN y troncales</span>
+        <span>OSPF</span>
+        <span>ACL y NAT</span>
+        <span>DHCP · DNS · HTTP</span>
+        <span>GNS3</span>
+        <span>Wireshark</span>
+      </div>
+    </section>
+
+    <section class="tarjeta destacada">
+      <h2>¿Por qué la capa 7?</h2>
+      <p>
+        Este mismo sitio es un ejemplo práctico de la capa de aplicación: el navegador
+        envía una petición <strong>HTTP GET</strong> al puerto 80 de un servidor
+        <strong>nginx</strong> que corre dentro de un contenedor Docker, y este responde
+        con los archivos HTML, CSS e imágenes.
+      </p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>INTERNET: Redes y Comunicaciones IP · Universidad de Ibagué</p>
+  </footer>
+</body>
+</html>

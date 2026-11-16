@@ -1,0 +1,9 @@
+services:
+  sitio-html:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sitio-camilo:latest
+    ports:
+      - "8002:80"
+    restart: unless-stopped

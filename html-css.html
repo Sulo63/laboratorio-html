@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML + CSS - Lo aprendido en el curso</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Versión HTML + CSS: mismo contenido que html-puro.html, con hoja de estilos -->
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <p class="etiqueta">Cisco Networking Academy · GNS3</p>
+      <h1>Lo aprendido en el curso</h1>
+      <p class="intro">INTERNET: Redes y Comunicaciones IP</p>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="html-puro.html">HTML puro</a>
+    <a class="activo" href="html-css.html">HTML + CSS</a>
+    <a href="integrantes/camilo.html">Camilo Novoa</a>
+  </nav>
+
+  <main class="contenedor">
+    <section class="tarjeta">
+      <h2>1. Las capas del modelo OSI</h2>
+      <table class="tabla">
+        <thead>
+          <tr><th>Capa</th><th>Nombre</th><th>PDU</th><th>Ejemplos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7</td><td>Aplicación</td><td>Datos</td><td>HTTP, DNS, DHCP, SMTP</td></tr>
+          <tr><td>6</td><td>Presentación</td><td>Datos</td><td>TLS, JPEG, UTF-8</td></tr>
+          <tr><td>5</td><td>Sesión</td><td>Datos</td><td>Control de diálogo</td></tr>
+          <tr><td>4</td><td>Transporte</td><td>Segmento</td><td>TCP, UDP</td></tr>
+          <tr><td>3</td><td>Red</td><td>Paquete</td><td>IPv4, IPv6, ICMP, OSPF</td></tr>
+          <tr><td>2</td><td>Enlace de datos</td><td>Trama</td><td>Ethernet, 802.1Q, STP</td></tr>
+          <tr><td>1</td><td>Física</td><td>Bits</td><td>Cobre, fibra, radio</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="columnas">
+      <section class="tarjeta">
+        <h2>2. Ejemplo de subneteo con VLSM</h2>
+        <p>Red base: <strong>192.168.1.0/24</strong>. Se reparte empezando por la subred más grande:</p>
+        <ol>
+          <li>Ventas, 100 hosts → 192.168.1.0/25 (126 hosts útiles)</li>
+          <li>Soporte, 50 hosts → 192.168.1.128/26 (62 hosts útiles)</li>
+          <li>Gerencia, 20 hosts → 192.168.1.192/27 (30 hosts útiles)</li>
+          <li>Enlace entre routers → 192.168.1.224/30 (2 hosts útiles)</li>
+        </ol>
+      </section>
+
+      <section class="tarjeta">
+        <h2>3. Conmutación y enrutamiento con Cisco</h2>
+        <ul>
+          <li><strong>VLAN:</strong> separan dominios de difusión dentro de un mismo switch.</li>
+          <li><strong>Troncales 802.1Q:</strong> llevan varias VLAN por un solo enlace.</li>
+          <li><strong>Router-on-a-stick:</strong> subinterfaces para enrutar entre VLAN.</li>
+          <li><strong>OSPF:</strong> protocolo de estado de enlace que elige rutas por costo.</li>
+          <li><strong>ACL:</strong> filtran tráfico por origen, destino y puerto.</li>
+          <li><strong>NAT/PAT:</strong> traducen direcciones privadas a una pública.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="tarjeta destacada">
+      <h2>4. Laboratorio en GNS3</h2>
+      <p>
+        En GNS3 se armó una topología con tres routers Cisco conectados por OSPF,
+        dos VLAN de usuarios y una salida a Internet con NAT. El tráfico se analizó
+        con Wireshark capturando sobre los enlaces.
+      </p>
+      <figure class="figura">
+        <img src="img/topologia.svg" alt="Topología de laboratorio en GNS3 con tres routers y cuatro PC">
+        <figcaption>Figura 1. Topología del laboratorio emulado en GNS3.</figcaption>
+      </figure>
+      <p>Configuración de OSPF en el router R1:</p>
+      <pre class="consola">
+R1(config)# router ospf 1
+R1(config-router)# network 10.0.0.0 0.0.0.3 area 0
+R1(config-router)# network 10.0.0.4 0.0.0.3 area 0
+R1(config-router)# end
+R1# show ip ospf neighbor</pre>
+    </section>
+
+    <section class="tarjeta">
+      <h2>5. Servicios de la capa de aplicación</h2>
+      <dl class="servicios">
+        <div><dt>HTTP / HTTPS (80 / 443, TCP)</dt><dd>Transfiere páginas web entre cliente y servidor.</dd></div>
+        <div><dt>DNS (53, UDP/TCP)</dt><dd>Traduce nombres de dominio a direcciones IP.</dd></div>
+        <div><dt>DHCP (67 / 68, UDP)</dt><dd>Asigna IP, máscara, puerta de enlace y DNS de forma automática (proceso DORA).</dd></div>
+        <div><dt>SMTP (25, TCP)</dt><dd>Envía correo electrónico entre servidores.</dd></div>
+      </dl>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Enlaces de interés</h2>
+      <div class="chips">
+        <span><a href="https://www.netacad.com/" target="_blank" rel="noopener">Cisco Networking Academy</a></span>
+        <span><a href="https://www.gns3.com/" target="_blank" rel="noopener">GNS3</a></span>
+        <span><a href="https://www.wireshark.org/" target="_blank" rel="noopener">Wireshark</a></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Versión HTML + CSS · INTERNET: Redes y Comunicaciones IP</p>
+  </footer>
+</body>
+</html>
